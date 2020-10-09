@@ -5,5 +5,14 @@ Vue.config.productionTip = false
 
 new Vue({
   el: '#app',
-  data: { n: 1 }
+  render(h) {
+    return h('div', [this.n, h('button', { onClick: this.add }, '+1')])
+  },
+  data: { n: 1 },
+  methods: {
+    add() {
+      this.n += 1
+    }
+  }
 })
+//h就是creatElement
